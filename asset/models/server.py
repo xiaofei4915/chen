@@ -92,7 +92,7 @@ class OperationSystem(CreateUpdateDateTimeCommonModelMixin, models.Model):
         ('unix', 'Unix')
     )
 
-    type = models.CharField(help_text='操作系统类型,可用值为: 0->Windows、1->Linux、2->BSD、3->MacOSX')
+    os_type = models.CharField(help_text='操作系统类型,可用值为: 0->Windows、1->Linux、2->BSD、3->MacOSX')
     name = models.CharField(max_length=10, help_text='操作系统发行版,例如: CentOS、RHEL、Windows')
     version = models.CharField(max_length=10, help_text='主版本号')
     minor_version = models.CharField(blank=True,  max_length=10, help_text='次版本号')
@@ -226,7 +226,7 @@ class ServerHardDiskModel(models.Model):
     alias = models.CharField(max_length=30, help_text='品牌别名、全称')
     series = models.CharField(max_length=20, help_text='系列')
     model = models.CharField(max_length=50, help_text='型号')
-    type = models.CharField(max_length=10, choices=HARD_DISK_TYPE_CHOICES, help_text='硬盘类型')
+    os_type = models.CharField(max_length=10, choices=HARD_DISK_TYPE_CHOICES, help_text='硬盘类型')
 
     disk_size = models.IntegerField(help_text='磁盘容量,单位为：MB')
     random_read_speed = models.IntegerField(blank=True, help_text='磁盘随机读速率, 单位byte/s')
